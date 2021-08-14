@@ -7,13 +7,21 @@ def add_time(start, duration, start_day=None):
     new_hour = int(start_hour) + int(duration_hour)
     new_minute = int(start_minute) + int(duration_minute)
 
+    # Transfers excess hours in new_minute to new_hour
     new_hour += new_minute // 60
-    new_minute = new_minute % 60
+    new_minute %= 60
 
     days_passed = 0
     while new_hour > 12:
         new_hour -= 12
 
+        if period == 'PM':
+            period = 'AM'
+            days_passed += 1
+        else:
+            period = 'PM'
+
+    if int(start_hour) < 12 and new_hour == 12:
         if period == 'PM':
             period = 'AM'
             days_passed += 1
