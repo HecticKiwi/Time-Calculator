@@ -55,4 +55,4 @@ def add_time(start, duration, start_day=None):
     return new_time
 
 print(add_time("11:55 AM", "3:12"))
-print(add_time("11:40 AM", "0:25"))
+print(add_time("11:40 PM", "0:25", "Wednesday"))
